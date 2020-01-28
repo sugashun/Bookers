@@ -1,6 +1,13 @@
-<p class="single-text">
-    <%= @book.body %>    
-</p>
+<% if flash[:notice] %>
+<div class="flash">
+	<%= flash[:notice] %>
+</div>
+<% end %>
 
-<%= link_to "編集", edit_book_path(@book) %>
-<%= link_to "削除", book_path(@book), method: :delete %>
+ <p><strong>Title:</strong><%= @book.title %></p>
+ <p><strong>Body:</strong><%= @book.body %></strong></p>
+
+<%= link_to "Edit", edit_book_path(@book) %>
+<span>|</span>
+<%= link_to "Back", books_path %>
+
